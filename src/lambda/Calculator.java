@@ -2,20 +2,9 @@ package lambda;
 
 import java.util.stream.IntStream;
 
-public class Calculator {
+public class Calculator implements Operations {
 
     public static void main(String[] args){
-
-        /*
-        CalcLog isPrime = (val) -> {
-            for (int i = 2; i <= val / 2; ++i) {
-                if (val % i == 0) {
-                  return false;
-                }
-            }
-            return true;
-        };
-        */
 
         CalcTwo add = (val1, val2) -> val1 + val2;
         CalcTwo sub = (val1, val2) -> val1 - val2;
@@ -36,6 +25,16 @@ public class Calculator {
         System.out.println( "EsPrimo=> " + formatLambda(isPrime, 1) );
         System.out.println( "Factorial=> " + formatLambda(factorial, 3) );
 
+        /*
+        CalcLog isPrime = (val) -> {
+            for (int i = 2; i <= val / 2; ++i) {
+                if (val % i == 0) {
+                  return false;
+                }
+            }
+            return true;
+        };
+        */
     }
 
     public static int formatLambda(CalcOne ld, int val){
@@ -48,6 +47,42 @@ public class Calculator {
 
     public static boolean formatLambda(CalcLog ld, int val){
         return ld.isOparator(val);
+    }
+
+    @Override
+    public int add(int val1, int val2) {
+        CalcTwo add = (a, b) -> a + b;
+        return formatLambda(add, val1, val2);
+    }
+
+    @Override
+    public int substract(int val1, int val2) {
+        CalcTwo sub = (a, b) -> a - b;
+        return formatLambda(sub, val1, val2);
+    }
+
+    @Override
+    public boolean isOdd(int val) {
+        CalcLog isOdd = (n) -> n % 2 != 0;
+        return formatLambda(isOdd, val);
+    }
+
+    @Override
+    public boolean isPrime(int val) {
+        CalcLog isPrime = (n) -> n > 1 && IntStream.range(2, n).noneMatch(i -> n%i==0);
+        return formatLambda(isPrime, val);
+    }
+
+    @Override
+    public int factorial(int val) {
+        CalcOne factorial = (n) -> {
+            int fac = 1;
+            for(int i=2; i <= n; i++){
+                fac *= i;
+            }
+            return fac;
+        };
+        return formatLambda(factorial, val);
     }
     
 }
@@ -62,4 +97,12 @@ interface CalcTwo {
 
 interface CalcLog {
     boolean isOparator(int val);
+}
+
+interface Operations {
+    int add(int val1, int val2);
+    int substract(int val1, int val2);
+    boolean isOdd(int val);
+    boolean isPrime(int val);
+    int factorial(int val);
 }
