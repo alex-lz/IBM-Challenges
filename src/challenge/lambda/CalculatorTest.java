@@ -1,4 +1,4 @@
-package lambda;
+package challenge.lambda;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 

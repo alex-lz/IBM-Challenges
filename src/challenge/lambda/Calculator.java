@@ -1,4 +1,4 @@
-package lambda;
+package challenge.lambda;
 
 import java.util.stream.IntStream;
 
@@ -19,11 +19,11 @@ public class Calculator {
         };
 
         System.out.println("--Test--");
-        System.out.println( "Suma=> " + formatLambda(add, 2, 3) );
-        System.out.println( "Resta=> " + formatLambda(sub, 2, 3) );
-        System.out.println( "EsImpar=> " + formatLambda(isOdd, 3) );
-        System.out.println( "EsPrimo=> " + formatLambda(isPrime, 1) );
-        System.out.println( "Factorial=> " + formatLambda(factorial, 3) );
+        System.out.println( "Suma => " + formatLambda(add, 2, 3) );
+        System.out.println( "Resta => " + formatLambda(sub, 2, 3) );
+        System.out.println( "EsImpar => " + formatLambda(isOdd, 3) );
+        System.out.println( "EsPrimo => " + formatLambda(isPrime, 1) );
+        System.out.println( "Factorial => " + formatLambda(factorial, 3) );
 
         /*
         CalcLog isPrime = (val) -> {

@@ -1,4 +1,4 @@
-package challenge;
+package challenge.streams;
 
 public class Item {
 
@@ -18,8 +18,7 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item [description=" + description + ", id=" + id + ", manufacturer=" + manufacturer + ", name=" + name
-                + ", price=" + price + "]";
+        return "Item [id=" + id + ", name=" + name + ", description=" + description + ", manufacturer=" + manufacturer + ", price=" + price + "]";
     }
 
     public int getId() {
