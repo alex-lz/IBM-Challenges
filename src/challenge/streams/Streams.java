@@ -18,46 +18,54 @@ public class Streams {
         new Item(4, "LG", "Telefono de marca Coreana", "Luis", 10) );
 
         System.out.println("-- The most expensive item --");
-        getMostExpesiveItem(items);
+        System.out.println( getMostExpesiveItem(items) );
         System.out.println("-- The cheapest item --");
-        getCheapestItem(items);
+        System.out.println( getCheapestItem(items) );
         System.out.println("-- Items less than or equal to $40 USD --");
-        getLessThanPriceItems(items, 40);
+        getLessThanPriceItems(items, 40).forEach(System.out::println);
         System.out.println("-- Items greater than or equal to $40 USD --");
-        getGreaterThanPriceItems(items, 40);
+        getGreaterThanPriceItems(items, 40).forEach(System.out::println);
         System.out.println("-- Phone Deatails --");
-        getPhoneDetails(items);
+        getPhoneDetails(items).forEach(System.out::println);
         System.out.println("-- Manufactures --");
-        getManufacturersList(items);
+        getManufacturersList(items).forEach(System.out::println);
 
     }
 
-    public static void getMostExpesiveItem(List<Item> items) {
+    public static Item getMostExpesiveItem(List<Item> items) {
         Item expensiveItem = items.stream().max(Comparator.comparing(Item::getPrice)).get();
-        System.out.println( expensiveItem );
+        // System.out.println( expensiveItem );
+        return expensiveItem;
     }
 
-    public static void getCheapestItem(List<Item> items) {
+    public static Item getCheapestItem(List<Item> items) {
         Item cheaperItem = items.stream().min(Comparator.comparing(Item::getPrice)).get();
-        System.out.println( cheaperItem );
+        // System.out.println( cheaperItem );
+        return cheaperItem;
     }
 
-    public static void getLessThanPriceItems(List<Item> items, int prc) {
-        items.stream().filter(i -> i.getPrice() <= prc).collect(Collectors.toList()).forEach(System.out::println);
+    public static List<Item> getLessThanPriceItems(List<Item> items, int prc) {
+        List<Item> listItems = items.stream().filter(i -> i.getPrice() <= prc).collect(Collectors.toList());
+        // listItems.forEach(System.out::println);
+        return listItems;
     }
 
-    public static void getGreaterThanPriceItems(List<Item> items, int prc) {
-        items.stream().filter(i -> i.getPrice() >= prc).collect(Collectors.toList()).forEach(System.out::println);
+    public static List<Item> getGreaterThanPriceItems(List<Item> items, int prc) {
+        List<Item> listItems = items.stream().filter(i -> i.getPrice() >= prc).collect(Collectors.toList());
+        // listItems.forEach(System.out::println);
+        return listItems;
     }
 
-    public static void getManufacturersList(List<Item> items) {
-        List<String> manufacturers = items.stream().map(Item::getManufacturer).collect(Collectors.toList());
-        manufacturers.forEach( System.out::println);
-    }
-
-    public static void getPhoneDetails(List<Item> items) {
+    public static List<String> getPhoneDetails(List<Item> items) {
         List<String> details = items.stream().map(i -> " Equipo: "+i.getName()+" - Descripcion: "+i.getDescription()+" - Price: $"+i.getPrice()).collect(Collectors.toList());
-        details.forEach( System.out::println);
+        // details.forEach( System.out::println);
+        return details;
+    }
+
+    public static List<String> getManufacturersList(List<Item> items) {
+        List<String> manufacturers = items.stream().map(Item::getManufacturer).collect(Collectors.toList());
+        // manufacturers.forEach( System.out::println);
+        return manufacturers;
     }
     
 }
