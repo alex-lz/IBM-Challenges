@@ -2,7 +2,7 @@ package lambda;
 
 import java.util.stream.IntStream;
 
-public class Calculator implements Operations {
+public class Calculator {
 
     public static void main(String[] args){
 
@@ -49,31 +49,26 @@ public class Calculator implements Operations {
         return ld.isOparator(val);
     }
 
-    @Override
     public int add(int val1, int val2) {
         CalcTwo add = (a, b) -> a + b;
         return formatLambda(add, val1, val2);
     }
 
-    @Override
     public int substract(int val1, int val2) {
         CalcTwo sub = (a, b) -> a - b;
         return formatLambda(sub, val1, val2);
     }
 
-    @Override
     public boolean isOdd(int val) {
         CalcLog isOdd = (n) -> n % 2 != 0;
         return formatLambda(isOdd, val);
     }
 
-    @Override
     public boolean isPrime(int val) {
         CalcLog isPrime = (n) -> n > 1 && IntStream.range(2, n).noneMatch(i -> n%i==0);
         return formatLambda(isPrime, val);
     }
 
-    @Override
     public int factorial(int val) {
         CalcOne factorial = (n) -> {
             int fac = 1;
@@ -99,10 +94,12 @@ interface CalcLog {
     boolean isOparator(int val);
 }
 
+/*
 interface Operations {
-    int add(int val1, int val2);
-    int substract(int val1, int val2);
-    boolean isOdd(int val);
-    boolean isPrime(int val);
-    int factorial(int val);
+   public int add(int val1, int val2);
+   public int substract(int val1, int val2);
+   public boolean isOdd(int val);
+   public boolean isPrime(int val);
+   public int factorial(int val);
 }
+*/
