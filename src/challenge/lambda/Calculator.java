@@ -1,7 +1,15 @@
 package challenge.lambda;
 
 import java.util.stream.IntStream;
-
+/**
+ Write down a Calculator class that implements following
+ oparations using lambdas:
+   add(int, int)
+   sub(int, int)
+   isOdd(int)
+   isPrime(int)
+   factorial(int)
+ */
 public class Calculator {
 
     public static void main(String[] args){

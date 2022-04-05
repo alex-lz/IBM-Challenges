@@ -5,7 +5,19 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
+/**
+ Having a list of Items write down 10 methods that uses stream() to perform
+ several actions over the items like: sort, filter, perform calculations, etc...
+ chaining at least two intermediate operations like: map, flatMap, reduce, filter, etc...
 
+ public class Item {
+    int id;
+    String name;
+    String description;
+    String manufacturer;
+    int price;
+ }
+ */
 public class Streams {
 
     public static void main(String[] args) {

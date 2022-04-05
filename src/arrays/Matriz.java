@@ -1,13 +1,13 @@
 package arrays;
 /**
-Create a function that prints the following matrix
+-Create a function that prints the following matrix
 1 1 1 1 1
 0 1 0 1 0
 0 0 1 0 0
 0 1 0 1 0
 1 1 1 1 1
 
-Create a function that prints the following matrix(spiral)
+-Create a function that prints the following matrix(spiral)
 
 1     2    3   4
 12   13   14   5

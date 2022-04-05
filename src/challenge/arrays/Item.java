@@ -1,4 +1,4 @@
-package arrays;
+package challenge.arrays;
 
 public class Item implements Comparable<Item>{
 
